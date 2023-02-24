@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <title>Agents</title>
+</head>
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #wa-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+        #random-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: #25D366;
+            color: #fff;
+            font-size: 4rem;
+            border: #fff 4px solid;
+            outline: #25D366 2px solid;
+            box-shadow: 0 2px 20px #3d3d3d;
+            text-decoration: none;
+        }
+        #random-link:hover {
+            background-color: #128C7E;
+            border: #128C7E 4px solid;
+            outline: #128C7E 2px solid;
+        }
+    </style>
+
+
+    <div id="wa-link">
+        <a id="random-link" href="" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        const wpNumbers = {
+            "agent1": "https://wa.link/zreah7",
+            "agent2": "https://wa.link/85ttw3",
+            "agent3": "https://wa.link/eeetnu"
+        };
+
+        function getRandomAgentLink(wpNumbers) {
+            const links = Object.values(wpNumbers);
+            const randomIndex = Math.floor(Math.random() * links.length);
+            return links[randomIndex];
+        }
+
+        const randomLinkElement = document.getElementById("random-link");
+        randomLinkElement.href = getRandomAgentLink(wpNumbers);
+
+        randomLinkElement.addEventListener("click", function(event) {
+            let newLink = getRandomAgentLink(wpNumbers);
+            newLink = getRandomAgentLink(wpNumbers); // Get another random link
+            randomLinkElement.href = newLink; //update the link in the DOM with the new random link   
+        });
+
+    </script>
+</body>
+</html>
